@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black: #111111;
+  --dark: #333333;
+  --mid: #666666;
+  --secondary: #595959;
+  --pale: #d0d0d0;
+  --faint: #f0f0f0;
+  --white: #ffffff;
+
+  --shadow-pop: 4px 4px 0px var(--black);
+  --shadow-pop-hover: 6px 6px 0px var(--black);
+  --shadow-pop-active: 1px 1px 0px var(--black);
+
+  --radius: 14px;
+  --radius-pill: 999px;
+
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --font-display: "Junicode", Georgia, serif;
+  --font-body: "Office Code Pro", "Office Code Pro D", monospace;
+}
+
+/* ===== Animations ===== */
+@keyframes canvas-shift {
+  from { background-position: 0 0; }
+  to { background-position: 28px 28px; }
+}
+
+@keyframes card-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Typography ===== */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--black);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(48px, 8vw, 96px); }
+h2 { font-size: clamp(32px, 5vw, 52px); }
+h3 { font-size: clamp(22px, 3vw, 30px); }
+
+/* Labels — small uppercase Archivo */
+.label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+p { margin: 0; }
+
+/* ===== Links ===== */
+a {
+  color: var(--black);
+  text-decoration: none;
+  transition: all 0.2s var(--spring);
+}
+
+a:hover {
+  color: var(--mid);
+}
+
+/* ===== Canvas grid pattern ===== */
+.canvas-grid {
+  background-color: var(--faint);
+  background-image:
+    linear-gradient(var(--pale) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pale) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ===== Interactive lift (cards, buttons) ===== */
+.interactive-lift {
+  box-shadow: var(--shadow-pop);
+  transition: all 0.2s var(--spring);
+}
+.interactive-lift:hover {
+  box-shadow: var(--shadow-pop-hover);
+  transform: translate(-2px, -2px);
+  background-color: var(--faint);
+}
+.interactive-lift:active {
+  box-shadow: var(--shadow-pop-active);
+  transform: translate(1px, 1px);
+}
+
+/* ===== Staggered card entrance ===== */
+.card-enter {
+  animation: card-enter 0.5s var(--spring) both;
+}
+.card-enter:nth-child(1) { animation-delay: 0s; }
+.card-enter:nth-child(2) { animation-delay: 0.07s; }
+.card-enter:nth-child(3) { animation-delay: 0.14s; }
+
+/* ===== Fade up entrance ===== */
+.fade-up {
+  animation: fade-up 0.6s var(--spring) both;
+}
+
+/* ===== Custom paper airplane cursor ===== */
+* {
+  cursor: url('/cursors/paper-airplane.png') 1 0, auto;
+}
+
+a, button, [role="button"], input[type="submit"],
+.interactive-lift, [onclick], summary {
+  cursor: url('/cursors/paper-airplane-pointer.png') 1 0, pointer;
+}
+
+input, textarea, [contenteditable] {
+  cursor: text;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--black);
+  color: var(--white);
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+}
