@@ -262,7 +262,7 @@ export default function ReviewPipelineCanvasPage() {
               textTransform: "uppercase",
             }}
           >
-            Password protected
+            Interactive prototype
           </p>
         </section>
 

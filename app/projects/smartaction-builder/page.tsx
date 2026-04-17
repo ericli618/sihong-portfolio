@@ -326,7 +326,7 @@ export default function SmartActionBuilderPage() {
               textTransform: "uppercase",
             }}
           >
-            Password protected
+            Interactive prototype
           </p>
         </section>
       </div>

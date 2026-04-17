@@ -133,27 +133,29 @@ export default function DisplacementCanvas({
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    };
-
-    const handleMouseLeave = () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      // Check if cursor is within the canvas bounds
+      if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+        mouse.x = x;
+        mouse.y = y;
+      } else {
+        mouse.x = -1000;
+        mouse.y = -1000;
+      }
     };
 
     resizeCanvas();
     drawGrid();
 
     window.addEventListener("resize", resizeCanvas);
-    container.addEventListener("mousemove", handleMouseMove);
-    container.addEventListener("mouseleave", handleMouseLeave);
+    // Listen on document so it works even when content overlays the canvas
+    document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       cancelAnimationFrame(animFrameId);
       window.removeEventListener("resize", resizeCanvas);
-      container.removeEventListener("mousemove", handleMouseMove);
-      container.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 

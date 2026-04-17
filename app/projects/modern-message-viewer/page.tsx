@@ -252,7 +252,7 @@ export default function ModernMessageViewerPage() {
               textTransform: "uppercase",
             }}
           >
-            Password protected
+            Interactive prototype
           </p>
         </section>
       </div>
