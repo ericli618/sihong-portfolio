@@ -33,6 +33,14 @@ export default function ModernMessageViewerPage() {
             legal-grade metadata. Demoed to Am Law 100 firms and federal
             agencies. 100% of attendees opted into beta immediately.
           </p>
+          <p className="text-base text-gray-700 mb-4">
+            Sole designer, but the shape of this came from sitting next to
+            the engineers who own the ingest parsers and the reviewers who
+            live in these exports. The card sort below was run with four
+            reviewers and two engineers — their clustering, not mine, was
+            what made the Context / Evidence / Forensics hierarchy
+            obvious.
+          </p>
           <p className="text-sm text-gray-500 italic">
             Note: All case-study content has been redacted or AI-generated for
             confidentiality.
@@ -203,11 +211,11 @@ export default function ModernMessageViewerPage() {
         <section>
           <h2 className="font-semibold mb-6">&ldquo;What if every message was a document?&rdquo;</h2>
           <p className="text-base text-gray-700 mb-4">
-            The breakthrough was flipping the axis. Instead of building
-            platform-specific viewers, treat every timestamped item — a Slack
-            message, a Teams emoji reaction, a voicemail transcription — as a
-            first-class document in the existing review table. One row per
-            message. Metadata preserved. Sorted by time.
+            The shift that unlocked it was treating every timestamped item —
+            a Slack message, a Teams emoji reaction, a voicemail
+            transcription — as a first-class document in the existing review
+            table, instead of building a separate viewer per platform. One
+            row per message, metadata intact, sorted by time.
           </p>
           <p className="text-base text-gray-700">
             This meant zero database restructuring — the viewer plugs into the
@@ -258,6 +266,21 @@ export default function ModernMessageViewerPage() {
             Forensics. That hierarchy anchored the UI: conversation flow first,
             evidence markers second, forensic metadata on demand.
           </p>
+          <Image
+            src="/images/message-viewer/card-sort.svg"
+            alt="Card sort diagram from the discovery session with four reviewers and two engineers, showing 50 real message records clustered into three overlapping groups labeled Context, Evidence, and Forensics"
+            width={960}
+            height={440}
+            className="mt-4 mb-2 w-full"
+            style={{ borderRadius: "8px", border: "1px solid var(--pale)" }}
+          />
+          <p
+            className="text-sm mb-8 text-center"
+            style={{ color: "var(--mid)", fontStyle: "italic" }}
+          >
+            Card sort with four reviewers and two engineers — the three
+            clusters became the page layout
+          </p>
           <p className="text-base text-gray-700 mb-4">
             The design principle became &ldquo;Context First, Details on
             Demand&rdquo; — each line shows sender, platform styling, and date
@@ -285,11 +308,12 @@ export default function ModernMessageViewerPage() {
             scrollable narrative instead of a reconstructed spreadsheet.
           </p>
           <p className="text-base text-gray-700">
-            The deeper win was comprehension. Analysts could finally see
-            cross-platform timing patterns — the Slack message sent 30 seconds
-            before the Bloomberg trade, the iMessage that disappeared from
-            one archive but persisted in another. The story was always there.
-            It just needed one timeline to become visible.
+            What actually changed was comprehension. Analysts could see the
+            patterns across platforms that the old tools buried — the Slack
+            message sent 30 seconds before the Bloomberg trade, the iMessage
+            that disappeared from one archive but persisted in another. The
+            story was in the data the whole time. The tool just had to stop
+            hiding it.
           </p>
         </section>
 

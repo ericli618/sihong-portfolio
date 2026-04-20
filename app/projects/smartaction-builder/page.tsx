@@ -5,14 +5,14 @@ import ProjectLayout from "../../components/ProjectLayout";
 export const metadata = {
   title: "SmartAction Builder — Eric Sihong Li",
   description:
-    "$70.4M federal modernization converting paper workflows to intelligent digital routing",
+    "$70M federal modernization converting paper workflows to intelligent digital routing",
 };
 
 export default function SmartActionBuilderPage() {
   return (
     <ProjectLayout
       title="SmartAction Builder"
-      subtitle="$70.4 Million Paper-Mail Conversion"
+      subtitle="$70 Million Paper-Mail Conversion"
     >
       <div className="space-y-20 my-16">
         {/* TL;DR Section */}
@@ -32,6 +32,16 @@ export default function SmartActionBuilderPage() {
             engineering tickets. It plugs into existing OCR and AI pipelines,
             so the system reads, classifies, and routes packets automatically
             while humans handle the edge cases.
+          </p>
+          <p className="text-base text-gray-700">
+            I was the sole designer on this work, which is not the same as
+            doing it alone. The service blueprint, the rule grammar, and the
+            canvas itself came out of months of back-and-forth with the
+            engineering leads who own the OCR and workflow infrastructure,
+            the QA analysts who catch what the models miss, and the intake
+            supervisors whose mental model the grammar had to mirror. What
+            I brought was the design spine — the shared vocabulary they
+            could point at, edit, and push back on.
           </p>
         </section>
 
@@ -209,6 +219,21 @@ export default function SmartActionBuilderPage() {
             constantly. If every rule change required an engineering sprint,
             the system would be outdated before it shipped.
           </p>
+          <Image
+            src="/images/smartaction/service-blueprint.svg"
+            alt="Service blueprint mapping Veteran, Frontstage, Backstage, and Vendor Support swim lanes across Postmark, Scan, Intake, Analysis, QA/Redact, and Archive phases, with sticky-note annotations and redaction bars"
+            width={960}
+            height={440}
+            className="mt-8 mb-2 w-full"
+            style={{ borderRadius: "8px", border: "1px solid var(--pale)" }}
+          />
+          <p
+            className="text-sm mb-8 text-center"
+            style={{ color: "var(--mid)", fontStyle: "italic" }}
+          >
+            Working blueprint from the discovery phase — the version before it
+            got cleaned up for a steering committee
+          </p>
           <p className="text-base text-gray-700">
             That constraint became the design brief: the workflow engine
             couldn&apos;t just be configurable — it had to be authorable by the
@@ -336,23 +361,22 @@ export default function SmartActionBuilderPage() {
         <section>
           <h2 className="font-semibold mb-6">What Changed</h2>
           <p className="text-base text-gray-700 mb-4">
-            Before: packets took 2–3 days to reach first action, passing
-            through 8–10 manual hand-offs. After: most packets route within
-            hours, often minutes. Manual touches dropped ~80%. The 20-working-day
-            FOIA mandate — previously a scramble — is now beaten by a
-            comfortable margin.
+            A packet that used to take 2–3 days to reach its first action now
+            moves in hours, sometimes minutes. Manual hand-offs fell by roughly
+            80%, and the 20-working-day FOIA clock — which used to be a
+            scramble — is now comfortably met.
           </p>
           <p className="text-base text-gray-700 mb-4">
             The initial pilot reached ~7,000 VA staff processing roughly 1
             million packets per year. Full rollout targets ~400,000 VHA
-            employees, part of a ~$345M enterprise modernization contract.
+            employees, a $306M task order within the broader $5.4B VICCS IDIQ program (public record).
           </p>
           <p className="text-base text-gray-700">
-            The methodology that made it work: clickable prototypes before
-            every development sprint, translating cross-agency business rules
-            into interfaces non-technical users could own, and treating AI as
-            a verb in an existing grammar rather than a separate system to
-            learn.
+            What made it stick was a clickable prototype in front of every
+            sprint so business owners could argue with a screen instead of a
+            spec, plus treating AI as one more verb in a grammar the
+            intake team already spoke. The hard part was never the models —
+            it was giving non-engineers a place to put their rules.
           </p>
         </section>
 

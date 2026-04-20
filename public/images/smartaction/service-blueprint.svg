@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <pattern id="sb-dots" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#d8d8d2"/>
+    </pattern>
+    <marker id="sb-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#444"/>
+    </marker>
+    <style>
+      .hand { font-family: 'Kalam', 'Bradley Hand', 'Chalkboard SE', cursive; }
+    </style>
+  </defs>
+
+  <rect width="960" height="520" fill="#fafaf5"/>
+  <rect width="960" height="520" fill="url(#sb-dots)"/>
+
+  <!-- Title block -->
+  <text x="24" y="30" font-size="15" font-weight="700" fill="#111">VHA Mail Intake — Service Blueprint v0.4</text>
+  <text x="24" y="48" font-size="10" fill="#777">FigJam • shared with GDIT + HLP • iteratively updated Apr 2024</text>
+
+  <!-- Lane labels -->
+  <g font-size="9" font-weight="700" fill="#888" letter-spacing="0.5">
+    <text x="20" y="130">VETERAN /</text>
+    <text x="20" y="142">SUBMITTER</text>
+    <text x="20" y="238">FRONTSTAGE</text>
+    <text x="20" y="250">(VA STAFF)</text>
+    <text x="20" y="358">BACKSTAGE</text>
+    <text x="20" y="370">(SYSTEMS)</text>
+    <text x="20" y="470">VENDOR</text>
+    <text x="20" y="482">SUPPORT</text>
+  </g>
+
+  <!-- Lane dividers -->
+  <g stroke="#cfcfc9" stroke-width="1" stroke-dasharray="4,3">
+    <line x1="130" y1="85" x2="940" y2="85"/>
+    <line x1="130" y1="180" x2="940" y2="180"/>
+    <line x1="130" y1="295" x2="940" y2="295"/>
+    <line x1="130" y1="410" x2="940" y2="410"/>
+  </g>
+
+  <!-- Phase headers -->
+  <g font-size="10" font-weight="700" fill="#999" text-anchor="middle" letter-spacing="1">
+    <text x="215" y="77">POSTMARK</text>
+    <text x="345" y="77">SCAN</text>
+    <text x="475" y="77">INTAKE</text>
+    <text x="605" y="77">ANALYSIS</text>
+    <text x="735" y="77">QA / REDACT</text>
+    <text x="860" y="77">ARCHIVE</text>
+  </g>
+
+  <!-- Vertical phase gridlines (faint) -->
+  <g stroke="#e8e8e0" stroke-width="1">
+    <line x1="280" y1="85" x2="280" y2="510"/>
+    <line x1="410" y1="85" x2="410" y2="510"/>
+    <line x1="540" y1="85" x2="540" y2="510"/>
+    <line x1="670" y1="85" x2="670" y2="510"/>
+    <line x1="800" y1="85" x2="800" y2="510"/>
+  </g>
+
+  <!-- Sticky 1: Veteran mails form (yellow, tilt left) -->
+  <g transform="rotate(-1.6 215 135)">
+    <rect x="170" y="100" width="90" height="70" fill="#fff3a0" stroke="#d4b81e" stroke-width="1"/>
+    <text x="215" y="122" class="hand" font-size="11" fill="#222" text-anchor="middle">veteran mails</text>
+    <text x="215" y="137" class="hand" font-size="11" fill="#222" text-anchor="middle">Form 10-10D</text>
+    <text x="215" y="158" class="hand" font-size="9" fill="#8a7a00" text-anchor="middle">~6.6M/yr (VBA)</text>
+  </g>
+
+  <!-- Sticky 2: IM scans (pink, tilt right) -->
+  <g transform="rotate(1.2 345 235)">
+    <rect x="300" y="200" width="90" height="70" fill="#ffd6d9" stroke="#d88a8e" stroke-width="1"/>
+    <text x="345" y="222" class="hand" font-size="11" fill="#222" text-anchor="middle">IM scans &amp;</text>
+    <text x="345" y="237" class="hand" font-size="11" fill="#222" text-anchor="middle">uploads PDF</text>
+    <text x="345" y="258" class="hand" font-size="9" fill="#9a3a3a" text-anchor="middle">Iron Mountain</text>
+  </g>
+
+  <!-- Sticky 3: Clerk assigns (pink, tilt left, has PAIN) -->
+  <g transform="rotate(-0.8 475 235)">
+    <rect x="430" y="200" width="90" height="70" fill="#ffd6d9" stroke="#d88a8e" stroke-width="1"/>
+    <text x="475" y="222" class="hand" font-size="11" fill="#222" text-anchor="middle">clerk reads &amp;</text>
+    <text x="475" y="237" class="hand" font-size="11" fill="#222" text-anchor="middle">routes manually</text>
+  </g>
+  <text x="475" y="286" class="hand" font-size="11" fill="#c00" font-weight="700" text-anchor="middle">!! 8–10 hand-offs</text>
+
+  <!-- Sticky 4: OCR + AI classify (green) -->
+  <g transform="rotate(-1.1 475 350)">
+    <rect x="430" y="315" width="90" height="70" fill="#c9ebc4" stroke="#6ca866" stroke-width="1"/>
+    <text x="475" y="337" class="hand" font-size="11" fill="#222" text-anchor="middle">OCR + AI</text>
+    <text x="475" y="352" class="hand" font-size="11" fill="#222" text-anchor="middle">classify form</text>
+    <text x="475" y="373" class="hand" font-size="9" fill="#3a6a38" text-anchor="middle">iCONECT engine</text>
+  </g>
+
+  <!-- Sticky 5: Doc Rule routes (green) -->
+  <g transform="rotate(0.7 605 350)">
+    <rect x="560" y="315" width="90" height="70" fill="#c9ebc4" stroke="#6ca866" stroke-width="1"/>
+    <text x="605" y="337" class="hand" font-size="11" fill="#222" text-anchor="middle">Doc Rule</text>
+    <text x="605" y="352" class="hand" font-size="11" fill="#222" text-anchor="middle">routes packet</text>
+    <text x="605" y="373" class="hand" font-size="9" fill="#3a6a38" text-anchor="middle">WHEN / IF / THEN</text>
+  </g>
+
+  <!-- Sticky 6: Reviewer approves (pink) -->
+  <g transform="rotate(1.4 735 235)">
+    <rect x="690" y="200" width="90" height="70" fill="#ffd6d9" stroke="#d88a8e" stroke-width="1"/>
+    <text x="735" y="222" class="hand" font-size="11" fill="#222" text-anchor="middle">senior analyst</text>
+    <text x="735" y="237" class="hand" font-size="11" fill="#222" text-anchor="middle">approves / flags</text>
+    <text x="735" y="258" class="hand" font-size="9" fill="#9a3a3a" text-anchor="middle">if confidence &lt; 0.8</text>
+  </g>
+
+  <!-- Sticky 7: Folder write + audit (green) -->
+  <g transform="rotate(-0.9 865 350)">
+    <rect x="820" y="315" width="90" height="70" fill="#c9ebc4" stroke="#6ca866" stroke-width="1"/>
+    <text x="865" y="337" class="hand" font-size="11" fill="#222" text-anchor="middle">folder write</text>
+    <text x="865" y="352" class="hand" font-size="11" fill="#222" text-anchor="middle">+ audit log</text>
+  </g>
+
+  <!-- Sticky 8: HLP hosting (blue) -->
+  <g transform="rotate(1 345 450)">
+    <rect x="300" y="420" width="90" height="60" fill="#c8dff5" stroke="#6f9bc4" stroke-width="1"/>
+    <text x="345" y="442" class="hand" font-size="11" fill="#222" text-anchor="middle">HLP hosting</text>
+    <text x="345" y="457" class="hand" font-size="11" fill="#222" text-anchor="middle">+ infra</text>
+  </g>
+
+  <!-- Sticky 9: GDIT prime (blue) -->
+  <g transform="rotate(-1.2 605 450)">
+    <rect x="560" y="420" width="90" height="60" fill="#c8dff5" stroke="#6f9bc4" stroke-width="1"/>
+    <text x="605" y="442" class="hand" font-size="11" fill="#222" text-anchor="middle">GDIT prime</text>
+    <text x="605" y="457" class="hand" font-size="11" fill="#222" text-anchor="middle">oversight</text>
+  </g>
+
+  <!-- Arrows -->
+  <g fill="none" stroke="#444" stroke-width="1.3">
+    <path d="M 218 170 Q 260 190 300 208" marker-end="url(#sb-arr)"/>
+    <path d="M 395 232 L 425 232" marker-end="url(#sb-arr)"/>
+    <path d="M 470 272 Q 470 295 470 313" marker-end="url(#sb-arr)"/>
+    <path d="M 522 350 L 557 350" marker-end="url(#sb-arr)"/>
+    <path d="M 635 320 Q 680 280 720 270" marker-end="url(#sb-arr)"/>
+    <path d="M 780 232 Q 830 265 860 313" marker-end="url(#sb-arr)"/>
+  </g>
+
+  <!-- Dashed support lines -->
+  <g fill="none" stroke="#777" stroke-width="1" stroke-dasharray="3,2">
+    <path d="M 348 420 Q 400 400 450 388"/>
+    <path d="M 605 420 Q 660 360 720 268"/>
+  </g>
+
+  <!-- Red annotation callout -->
+  <g class="hand" font-size="11" fill="#c00" font-weight="700">
+    <text x="605" y="180" text-anchor="middle">← the question: who writes the rules?</text>
+  </g>
+  <path d="M 605 183 Q 600 200 603 210" fill="none" stroke="#c00" stroke-width="1.2" stroke-dasharray="2,2"/>
+
+  <!-- Redaction bars for "confidentiality" feel -->
+  <rect x="740" y="97" width="150" height="10" fill="#222" opacity="0.85"/>
+  <rect x="740" y="110" width="110" height="10" fill="#222" opacity="0.85"/>
+  <text x="895" y="106" font-size="8" fill="#888" text-anchor="end" font-style="italic">redacted</text>
+</svg>

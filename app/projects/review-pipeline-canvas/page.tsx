@@ -31,6 +31,15 @@ export default function ReviewPipelineCanvasPage() {
             demo presented to CPO, CTO, and board — now under feasibility
             evaluation for production.
           </p>
+          <p className="text-base text-gray-700">
+            One caveat worth stating up front: I designed and coded this
+            prototype on my own, outside the main product roadmap. The review
+            it&apos;s currently in is a team effort — engineering leads are
+            stress-testing the runtime, compliance is pressure-testing the
+            audit story, and the eDiscovery practitioners are telling me
+            where my assumptions break. What ships, if anything ships,
+            won&apos;t look exactly like what&apos;s here.
+          </p>
         </section>
 
         {/* Hero Screenshot */}
@@ -147,14 +156,14 @@ export default function ReviewPipelineCanvasPage() {
 
         {/* The Insight Section */}
         <section>
-          <h2 className="font-semibold mb-6">&ldquo;What if the pipeline was the interface?&rdquo;</h2>
+          <h2 className="font-semibold mb-6">The Pipeline Is the Interface</h2>
           <p className="text-base text-gray-700 mb-4">
-            The design borrows from node-based tools — n8n, Retool, Unreal
-            Engine blueprints — but adapts the pattern for a non-technical
-            audience. No code. No JSON. Drag, connect, configure, deploy. The
-            canvas becomes both the configuration tool and the monitoring
-            dashboard. You build the workflow and you watch it run, in the same
-            place.
+            The design borrows the node-based pattern from tools like n8n,
+            Retool, and Unreal Engine blueprints, but adapts it for
+            compliance teams who don&apos;t write code and don&apos;t want
+            to. The canvas doubles as configuration and monitoring — you
+            build the workflow in the same surface where you later watch
+            it run.
           </p>
         </section>
 
@@ -249,10 +258,10 @@ export default function ReviewPipelineCanvasPage() {
             routing does, but why.
           </p>
           <p className="text-base text-gray-700">
-            The Advanced template adds agent disagreement detection: when the QC
-            Agent disagrees with the Extractor, the record routes to Human
-            Triage rather than proceeding automatically. Two AI agents disagree?
-            A human decides.
+            The Advanced template adds agent disagreement detection: when the
+            QC Agent disagrees with the Extractor, the record routes to
+            Human Triage instead of proceeding. When two AI agents can&apos;t
+            reconcile, a person makes the call.
           </p>
         </section>
 
@@ -269,6 +278,40 @@ export default function ReviewPipelineCanvasPage() {
             side by side. Low-confidence fields are highlighted. The
             approve/reject/escalate model mirrors existing legal review
             workflows — no new mental model required.
+          </p>
+        </section>
+
+        {/* Discarded Direction Section */}
+        <section>
+          <h2 className="font-semibold mb-6">The Version That Didn&apos;t Survive</h2>
+          <p className="text-base text-gray-700 mb-4">
+            The first pass at this was a list-based configuration table —
+            numbered steps, an &ldquo;input from&rdquo; column, an
+            &ldquo;output to&rdquo; column. Every rule was legible on its
+            own, but nobody could answer &ldquo;what flows where?&rdquo;
+            without tracing IDs across rows. Forks hid inside comma-separated
+            cells. Disconnected steps looked fine. I killed it on day three.
+          </p>
+          <Image
+            src="/images/canvas/discarded-direction.svg"
+            alt="Mock of the discarded list-based pipeline configuration table with a tilted KILLED stamp overlay and handwritten annotations explaining why the table view failed to communicate the pipeline shape"
+            width={960}
+            height={440}
+            className="mt-2 mb-2 w-full"
+            style={{ borderRadius: "8px", border: "1px solid var(--pale)" }}
+          />
+          <p
+            className="text-sm mb-8 text-center"
+            style={{ color: "var(--mid)", fontStyle: "italic" }}
+          >
+            Early list-based pipeline config — killed on day three after
+            reviewers kept asking &ldquo;what connects to what?&rdquo;
+          </p>
+          <p className="text-base text-gray-700">
+            The lesson that carried into the canvas version: in an
+            agent pipeline, the shape of the graph is the logic. If the UI
+            doesn&apos;t show the shape, reviewers can&apos;t verify the
+            behavior.
           </p>
         </section>
 
