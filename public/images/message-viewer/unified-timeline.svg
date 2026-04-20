@@ -27,10 +27,10 @@
   </g>
 
   <!-- Source: iMessage (green, tilt right) -->
-  <g transform="rotate(3 230 162)">
-    <rect x="180" y="140" width="100" height="45" fill="#c9ebc4" stroke="#6ca866" stroke-width="1"/>
-    <text x="230" y="160" class="hand" font-size="12" fill="#222" text-anchor="middle">iMessage</text>
-    <text x="230" y="176" class="hand" font-size="9" fill="#3a6a38" text-anchor="middle">blue + green bubbles</text>
+  <g transform="rotate(3 275 122)">
+    <rect x="225" y="100" width="100" height="45" fill="#c9ebc4" stroke="#6ca866" stroke-width="1"/>
+    <text x="275" y="120" class="hand" font-size="12" fill="#222" text-anchor="middle">iMessage</text>
+    <text x="275" y="136" class="hand" font-size="9" fill="#3a6a38" text-anchor="middle">blue + green bubbles</text>
   </g>
 
   <!-- Source: Teams (purple, tilt left) -->
@@ -41,10 +41,10 @@
   </g>
 
   <!-- Source: Bloomberg (blue, tilt right) -->
-  <g transform="rotate(4 250 277)">
-    <rect x="200" y="255" width="100" height="45" fill="#c8dff5" stroke="#6f9bc4" stroke-width="1"/>
-    <text x="250" y="275" class="hand" font-size="12" fill="#222" text-anchor="middle">Bloomberg</text>
-    <text x="250" y="291" class="hand" font-size="9" fill="#3a6a99" text-anchor="middle">terminal alerts</text>
+  <g transform="rotate(4 275 352)">
+    <rect x="225" y="330" width="100" height="45" fill="#c8dff5" stroke="#6f9bc4" stroke-width="1"/>
+    <text x="275" y="350" class="hand" font-size="12" fill="#222" text-anchor="middle">Bloomberg</text>
+    <text x="275" y="366" class="hand" font-size="9" fill="#3a6a99" text-anchor="middle">terminal alerts</text>
   </g>
 
   <!-- Source: Voicemail (pink, tilt left) -->
@@ -59,11 +59,11 @@
 
   <!-- Converging dashed arrows from sources to normalize -->
   <g fill="none" stroke="#888" stroke-width="1.1" stroke-dasharray="4,3">
-    <path d="M 145 112 Q 250 140 342 195"/>
-    <path d="M 285 163 Q 310 185 350 205"/>
+    <path d="M 145 112 Q 250 150 348 198"/>
+    <path d="M 325 123 Q 345 160 352 195"/>
     <path d="M 165 222 Q 250 225 348 215"/>
-    <path d="M 305 278 Q 325 255 348 232"/>
-    <path d="M 185 337 Q 270 290 346 245"/>
+    <path d="M 325 352 Q 350 300 352 240"/>
+    <path d="M 185 337 Q 270 290 346 232"/>
   </g>
 
   <!-- Normalize + merge funnel sticky (purple, slight tilt) -->

@@ -38,7 +38,7 @@
 
   <!-- High-confidence path (up + right) -->
   <path d="M 345 170 Q 385 140 420 118" fill="none" stroke="#444" stroke-width="1.4" marker-end="url(#cr-arr)"/>
-  <text x="370" y="135" class="hand" font-size="11" fill="#3a6a38" font-weight="700">≥ 0.80</text>
+  <text x="395" y="108" class="hand" font-size="11" fill="#3a6a38" font-weight="700" text-anchor="middle">≥ 0.80</text>
 
   <!-- QC Agent (green, top-right) -->
   <g transform="rotate(-1.1 475 115)">
@@ -71,7 +71,7 @@
 
   <!-- Low-confidence path (down + right) -->
   <path d="M 345 230 Q 385 265 420 285" fill="none" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#cr-arr-g)"/>
-  <text x="368" y="278" class="hand" font-size="11" fill="#c00" font-weight="700">&lt; 0.80</text>
+  <text x="395" y="305" class="hand" font-size="11" fill="#c00" font-weight="700" text-anchor="middle">&lt; 0.80</text>
 
   <!-- Human Review (pink) -->
   <g transform="rotate(1.5 475 290)">
@@ -82,7 +82,7 @@
 
   <!-- Approve path up to Dedupe bottom -->
   <path d="M 530 272 Q 595 230 635 148" fill="none" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#cr-arr-g)"/>
-  <text x="578" y="215" class="hand" font-size="10" fill="#3a6a38" font-style="italic">approve →</text>
+  <text x="545" y="200" class="hand" font-size="10" fill="#3a6a38" font-style="italic">approve →</text>
 
   <!-- Reject/escalate path: down, left, back up to Extractor -->
   <path d="M 470 322 L 470 370 L 130 370 Q 100 370 105 232" fill="none" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#cr-arr-g)"/>
