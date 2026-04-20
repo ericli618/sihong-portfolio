@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#111"/>
+    </marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#999"/>
+    </marker>
+  </defs>
+  <rect width="880" height="300" fill="#f5f5f5" rx="6"/>
+
+  <!-- Database Input -->
+  <rect x="20" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="75" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Database Input</text>
+  <line x1="130" y1="85" x2="160" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Extractor -->
+  <rect x="160" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="215" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Extractor</text>
+
+  <!-- Branch dot -->
+  <circle cx="285" cy="85" r="3" fill="#111"/>
+
+  <!-- High-confidence arrow -->
+  <line x1="285" y1="85" x2="370" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="328" y="76" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="middle">≥ 0.80</text>
+
+  <!-- QC Agent -->
+  <rect x="370" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="425" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">QC Agent</text>
+  <line x1="480" y1="85" x2="520" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Dedupe -->
+  <rect x="520" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="575" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Dedupe</text>
+  <line x1="630" y1="85" x2="670" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Output -->
+  <rect x="670" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="725" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Output</text>
+
+  <!-- End dot -->
+  <line x1="780" y1="85" x2="820" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+  <circle cx="830" cy="85" r="5" fill="#111"/>
+
+  <!-- Low-confidence branch down to Human Review -->
+  <path d="M 285 88 L 285 200 L 370 200" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3" fill="none" marker-end="url(#arr-g)"/>
+  <text x="295" y="155" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="start">&lt; 0.80</text>
+
+  <!-- Human Review pill (label vertically centered, single line) -->
+  <rect x="370" y="175" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="425" y="205" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Human Review</text>
+
+  <!-- Sub-label BELOW the pill, not inside -->
+  <text x="425" y="245" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="middle">Approve · Reject · Escalate</text>
+
+  <!-- Approve path back up to Dedupe -->
+  <path d="M 480 200 L 510 200 L 510 130 L 550 110" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3" fill="none" marker-end="url(#arr-g)"/>
+  <text x="520" y="160" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="start">approve</text>
+
+  <!-- Legend -->
+  <line x1="30" y1="278" x2="55" y2="278" stroke="#111" stroke-width="2"/>
+  <text x="60" y="282" font-family="system-ui,sans-serif" font-size="10" fill="#666">Primary flow</text>
+  <line x1="160" y1="278" x2="185" y2="278" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="190" y="282" font-family="system-ui,sans-serif" font-size="10" fill="#666">Conditional / feedback</text>
+</svg>

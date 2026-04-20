@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" width="820" height="340">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#111"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="820" height="340" fill="#f5f5f5" rx="6"/>
+
+  <!-- Title -->
+  <text x="410" y="30" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#111" text-anchor="middle">Fragmented Sources → Unified Timeline</text>
+
+  <!-- ===== LEFT: Scattered source boxes ===== -->
+
+  <!-- Slack -->
+  <rect x="30" y="60" width="90" height="40" rx="6" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="75" y="85" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#111" text-anchor="middle">Slack</text>
+
+  <!-- iMessage -->
+  <rect x="60" y="120" width="90" height="40" rx="6" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="105" y="145" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#111" text-anchor="middle">iMessage</text>
+
+  <!-- Teams -->
+  <rect x="20" y="180" width="90" height="40" rx="6" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="65" y="205" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#111" text-anchor="middle">Teams</text>
+
+  <!-- Bloomberg -->
+  <rect x="70" y="240" width="90" height="40" rx="6" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="115" y="265" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#111" text-anchor="middle">Bloomberg</text>
+
+  <!-- Voicemail -->
+  <rect x="30" y="290" width="90" height="40" rx="6" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="75" y="315" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#111" text-anchor="middle">Voicemail</text>
+
+  <!-- ===== CENTER: Funnel ===== -->
+  <text x="270" y="185" font-family="system-ui,sans-serif" font-size="28" fill="#111" text-anchor="middle">→</text>
+
+  <!-- Funnel shape -->
+  <path d="M 310 55 L 380 55 L 360 170 L 380 285 L 310 285 L 330 170 Z" fill="none" stroke="#111" stroke-width="2"/>
+
+  <text x="345" y="310" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="middle">normalize + merge</text>
+
+  <!-- Arrow out of funnel -->
+  <line x1="380" y1="170" x2="430" y2="170" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ===== RIGHT: Unified timeline ===== -->
+
+  <!-- Timeline vertical line -->
+  <line x1="450" y1="55" x2="450" y2="310" stroke="#111" stroke-width="2"/>
+
+  <!-- Message 1: Slack -->
+  <circle cx="450" cy="80" r="4" fill="#111"/>
+  <rect x="470" y="68" width="180" height="24" rx="4" fill="#fff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="480" y="85" font-family="system-ui,sans-serif" font-size="11" fill="#333" font-weight="500">Slack: project update</text>
+  <text x="640" y="85" font-family="system-ui,sans-serif" font-size="10" fill="#999" text-anchor="end">2:15 PM</text>
+
+  <!-- Message 2: Teams -->
+  <circle cx="450" cy="130" r="4" fill="#111"/>
+  <rect x="470" y="118" width="180" height="24" rx="4" fill="#fff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="480" y="135" font-family="system-ui,sans-serif" font-size="11" fill="#333" font-weight="500">Teams: feedback</text>
+  <text x="640" y="135" font-family="system-ui,sans-serif" font-size="10" fill="#999" text-anchor="end">3:42 PM</text>
+
+  <!-- Message 3: iMessage -->
+  <circle cx="450" cy="180" r="4" fill="#111"/>
+  <rect x="470" y="168" width="180" height="24" rx="4" fill="#fff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="480" y="185" font-family="system-ui,sans-serif" font-size="11" fill="#333" font-weight="500">iMessage: lunch plans</text>
+  <text x="640" y="185" font-family="system-ui,sans-serif" font-size="10" fill="#999" text-anchor="end">4:08 PM</text>
+
+  <!-- Message 4: Bloomberg -->
+  <circle cx="450" cy="230" r="4" fill="#111"/>
+  <rect x="470" y="218" width="180" height="24" rx="4" fill="#fff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="480" y="235" font-family="system-ui,sans-serif" font-size="11" fill="#333" font-weight="500">Bloomberg: alert</text>
+  <text x="640" y="235" font-family="system-ui,sans-serif" font-size="10" fill="#999" text-anchor="end">5:20 PM</text>
+
+  <!-- Message 5: Voicemail -->
+  <circle cx="450" cy="280" r="4" fill="#111"/>
+  <rect x="470" y="268" width="180" height="24" rx="4" fill="#fff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="480" y="285" font-family="system-ui,sans-serif" font-size="11" fill="#333" font-weight="500">Voicemail: callback</text>
+  <text x="640" y="285" font-family="system-ui,sans-serif" font-size="10" fill="#999" text-anchor="end">5:45 PM</text>
+
+  <!-- Right label -->
+  <text x="740" y="175" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#111" text-anchor="middle">Unified</text>
+  <text x="740" y="190" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#111" text-anchor="middle">Timeline</text>
+
+</svg>

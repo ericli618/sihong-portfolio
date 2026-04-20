@@ -1,5 +1,6 @@
-import ProjectLayout from "../../components/ProjectLayout";
+import Image from "next/image";
 import Link from "next/link";
+import ProjectLayout from "../../components/ProjectLayout";
 
 export const metadata = {
   title: "Review Pipeline Canvas — Eric Sihong Li",
@@ -15,63 +16,145 @@ export default function ReviewPipelineCanvasPage() {
       <div className="space-y-20 my-16">
         {/* TL;DR Section */}
         <section>
-          <h2 className="font-semibold mb-6">TL;DR — AI Agent Orchestration</h2>
+          <h2 className="font-semibold mb-6">TL;DR — A Pipeline You Can See</h2>
           <p className="text-base text-gray-700 mb-4">
-            Built a canvas-based visual workflow builder where compliance teams
-            drag AI agents onto a spatial canvas, wire conditional routing
-            between them, and run multi-agent pipelines with real-time
-            monitoring. Internal demo presented to CPO, CTO, and board—now under
-            feasibility evaluation for production.
+            Compliance teams running breach-notification reviews had every AI tool
+            they needed — extraction models, deduplication logic, a review
+            interface — but no way to see how they connected. Every new project
+            meant an engineering ticket. Every routing change meant a sprint
+            cycle. The pipeline was invisible.
           </p>
-          <p className="text-base text-gray-700 font-medium mb-4">
-            Early prototype metrics:
+          <p className="text-base text-gray-700 mb-4">
+            I built a canvas-based visual workflow builder where teams drag AI
+            agents onto a spatial canvas, wire conditional routing between them,
+            and run multi-agent pipelines with real-time monitoring. Internal
+            demo presented to CPO, CTO, and board — now under feasibility
+            evaluation for production.
           </p>
-          <ul className="space-y-2 text-base text-gray-700 mb-4">
-            <li>
-              • Pipeline configuration time: hours → minutes (drag-and-drop vs.
-              engineering tickets)
-            </li>
-            <li>
-              • Human review routing: automatic confidence-based triage
-              replacing manual assignment
-            </li>
-            <li>
-              • Template coverage: Standard (6-node, ~94% automation) and
-              Advanced (8-node, ~98% with multi-gate validation)
-            </li>
-          </ul>
+        </section>
+
+        {/* Hero Screenshot */}
+        <section>
+          <Image
+            src="/images/home/canvas-thumb.png"
+            alt="Review Pipeline Canvas — 8-node AI agent workflow with conditional routing, showing Data Input, Extractor, QC Agent, Human Review, Dedupe, and Output nodes connected on a spatial canvas"
+            width={1200}
+            height={900}
+            className="w-full"
+            style={{ borderRadius: "8px", border: "1px solid var(--pale)" }}
+            priority
+          />
+          <p
+            className="text-sm mt-3 text-center"
+            style={{ color: "var(--mid)", fontStyle: "italic" }}
+          >
+            Advanced template — 8 nodes, 10 connections, conditional routing on
+            confidence scores and QC decisions
+          </p>
+        </section>
+
+        {/* Metrics */}
+        <section>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "1px",
+              backgroundColor: "var(--pale)",
+              border: "2.5px solid var(--black)",
+              borderRadius: "var(--radius)",
+              overflow: "hidden",
+            }}
+          >
+            {[
+              { stat: "Hours → Minutes", label: "Pipeline configuration time" },
+              { stat: "~94% automation", label: "Standard template (6-node)" },
+              { stat: "~98% coverage", label: "Advanced template (8-node)" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "var(--white)",
+                  padding: "24px 20px",
+                  textAlign: "center",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "clamp(16px, 2.5vw, 22px)",
+                    fontWeight: 700,
+                    color: "var(--black)",
+                    marginBottom: "6px",
+                  }}
+                >
+                  {item.stat}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "0.75rem",
+                    fontWeight: 500,
+                    color: "var(--mid)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Setting the Stage Section */}
         <section>
-          <h2 className="font-semibold mb-6">Setting the Stage — The Orchestration Gap</h2>
+          <h2 className="font-semibold mb-6">The Orchestration Gap</h2>
           <p className="text-base text-gray-700 mb-4">
             eDiscovery teams processing breach notifications run a four-stage
             pipeline: scoping affected data, extracting PII from documents,
-            deduplicating records, and generating notification lists. At
-            iCONECT, each stage had tooling. Extraction models existed.
-            Deduplication logic existed. A review interface existed. What didn't
-            exist was a way to compose these capabilities into a single,
-            visible, end-to-end workflow. Every new project required engineering
-            to configure the pipeline. Every routing change meant a ticket and a
-            sprint cycle. Compliance teams could see individual tools but not
-            the pipeline connecting them.
+            deduplicating records, and generating notification lists. At iCONECT,
+            each stage had tooling. What didn&apos;t exist was a way to compose
+            these capabilities into a single, visible, end-to-end workflow.
+          </p>
+          <p className="text-base text-gray-700">
+            Every new project required engineering to configure the pipeline.
+            Every routing change meant a ticket and a sprint cycle. Compliance
+            teams could see individual tools but not the pipeline connecting
+            them. The question I kept returning to: what if the pipeline itself
+            was the interface?
+          </p>
+        </section>
+
+        {/* Pipeline Diagram */}
+        <section>
+          <Image
+            src="/images/canvas/pipeline-overview.svg"
+            alt="Pipeline flow diagram — Database Input → Extractor splits by confidence: high goes to QC Agent → Dedupe → Output, low goes to Human Review then merges back"
+            width={900}
+            height={340}
+            className="w-full"
+            style={{ borderRadius: "8px", border: "1px solid var(--pale)", backgroundColor: "var(--faint)", padding: "20px" }}
+          />
+          <p
+            className="text-sm mt-3 text-center"
+            style={{ color: "var(--mid)", fontStyle: "italic" }}
+          >
+            Core pipeline architecture — confidence scores determine whether
+            records flow to automated QC or human review
           </p>
         </section>
 
         {/* The Insight Section */}
         <section>
-          <h2 className="font-semibold mb-6">"What if the pipeline was the interface?"</h2>
+          <h2 className="font-semibold mb-6">&ldquo;What if the pipeline was the interface?&rdquo;</h2>
           <p className="text-base text-gray-700 mb-4">
-            The insight: treat each AI capability as a node on a canvas. Let
-            users wire them together visually, the same way Monday.com lets
-            users build automations with WHEN→IF→THEN blocks. The canvas
-            becomes both the configuration tool and the monitoring dashboard.
-          </p>
-          <p className="text-base text-gray-700 mb-4">
-            The design borrows from node-based tools (n8n, Retool, Unreal
-            Engine blueprints) but adapts the pattern for a non-technical
-            audience. No code. No JSON. Just drag, connect, configure, deploy.
+            The design borrows from node-based tools — n8n, Retool, Unreal
+            Engine blueprints — but adapts the pattern for a non-technical
+            audience. No code. No JSON. Drag, connect, configure, deploy. The
+            canvas becomes both the configuration tool and the monitoring
+            dashboard. You build the workflow and you watch it run, in the same
+            place.
           </p>
         </section>
 
@@ -79,90 +162,97 @@ export default function ReviewPipelineCanvasPage() {
         <section>
           <h2 className="font-semibold mb-6">Six Agent Types, One Canvas</h2>
           <p className="text-base text-gray-700 mb-6">
-            Each node represents a stage with its own behavior and
-            configuration:
+            Each node on the canvas represents a stage with its own behavior and
+            configuration panel:
           </p>
 
-          <div className="space-y-6">
-            <div>
-              <h3 className="font-semibold text-base mb-2">Database</h3>
-              <p className="text-base text-gray-700">
-                Data ingestion. Upload, connect to existing project, or pull
-                from prior analysis. Displays record count, field count,
-                detected PII types.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-base mb-2">Extractor</h3>
-              <p className="text-base text-gray-700 mb-2">
-                LLM-powered field extraction. Users select a model (Claude Opus,
-                Sonnet, Haiku, or GPT-4o), define target fields with types
-                (SSN, email, phone, address, date), and set confidence
-                thresholds—global and per-field. A domain knowledge field
-                accepts context: "Healthcare breach. SSN may appear as
-                XXX-XX-XXXX." Compliance flags: HIPAA, PCI-DSS, GDPR, CCPA.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-base mb-2">QC Agent</h3>
-              <p className="text-base text-gray-700">
-                Validates extraction accuracy. Full review or configurable
-                sampling rate. Custom validation rules: SSN format, date format,
-                required fields.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-base mb-2">Dedupe Agent</h3>
-              <p className="text-base text-gray-700">
-                Three strategies: exact match on primary keys, fuzzy match with
-                per-field similarity thresholds, or LLM-based semantic entity
-                resolution.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-base mb-2">Human Review</h3>
-              <p className="text-base text-gray-700 mb-2">
-                The human-in-the-loop gate. Routes low-confidence records to
-                reviewers inside iCONECT. Displays original text alongside
-                extracted data with per-field confidence scores. Reviewer
-                actions: Approve, Reject, Escalate. Each action triggers
-                conditional routing downstream.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-base mb-2">Output</h3>
-              <p className="text-base text-gray-700">
-                Export as XLSX, CSV, or JSON. Optional audit report tracing each
-                record's path through the pipeline.
-              </p>
-            </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "12px",
+            }}
+          >
+            {[
+              {
+                name: "Database Input",
+                desc: "Upload data, connect to existing projects, or pull from prior analysis. Shows record count, field count, detected PII types.",
+              },
+              {
+                name: "Extractor",
+                desc: "LLM-powered field extraction. Pick a model (Claude, GPT-4o), define target fields with types, set per-field confidence thresholds. Accepts domain context and compliance flags (HIPAA, PCI-DSS, GDPR).",
+              },
+              {
+                name: "QC Agent",
+                desc: "Validates extraction accuracy. Full review or configurable sampling rate. Custom validation rules: SSN format, date format, required fields.",
+              },
+              {
+                name: "Dedupe Agent",
+                desc: "Three strategies: exact match on primary keys, fuzzy match with per-field similarity thresholds, or LLM-based semantic entity resolution.",
+              },
+              {
+                name: "Human Review",
+                desc: "The human-in-the-loop gate. Routes low-confidence records to reviewers. Original text alongside extracted data with per-field scores. Actions: Approve, Reject, Escalate.",
+              },
+              {
+                name: "Output",
+                desc: "Export as XLSX, CSV, or JSON. Optional audit report tracing each record's path through the pipeline.",
+              },
+            ].map((agent, i) => (
+              <div
+                key={i}
+                style={{
+                  border: "2.5px solid var(--black)",
+                  borderRadius: "var(--radius)",
+                  padding: "20px",
+                  backgroundColor: "var(--white)",
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "0.95rem",
+                    fontWeight: 700,
+                    marginBottom: "8px",
+                  }}
+                >
+                  {agent.name}
+                </h3>
+                <p className="text-sm text-gray-600" style={{ lineHeight: 1.6 }}>
+                  {agent.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Conditional Routing Section */}
         <section>
-          <h2 className="font-semibold mb-6">Conditional Routing — Confidence as the Decision Primitive</h2>
+          <h2 className="font-semibold mb-6">Confidence as the Decision Primitive</h2>
+
+          <Image
+            src="/images/canvas/conditional-routing.svg"
+            alt="Conditional routing diagram — Extractor splits by confidence threshold: high confidence flows to QC Agent and Dedupe, low confidence flows to Human Review with approve/reject/escalate paths"
+            width={900}
+            height={300}
+            className="w-full mb-6"
+            style={{ borderRadius: "8px", border: "1px solid var(--pale)", backgroundColor: "var(--faint)", padding: "20px" }}
+          />
+
           <p className="text-base text-gray-700 mb-4">
             Edges between nodes carry routing logic. A typical split: records
-            with confidence ≥ 0.80 flow to QC Agent for automated validation.
-            Records below 0.80 flow to Human Review.
-          </p>
-          <p className="text-base text-gray-700 mb-4">
-            Each edge supports multi-operator conditions (AND/OR), priority
-            levels, and a reasoning field—because when a compliance officer
-            opens a workflow someone else built, they need to understand not
-            just what the routing does but why.
+            with confidence above 0.80 flow to the QC Agent for automated
+            validation. Records below 0.80 flow to Human Review. Each edge
+            supports multi-operator conditions (AND/OR), priority levels, and a
+            reasoning field — because when a compliance officer opens a workflow
+            someone else built, they need to understand not just what the
+            routing does, but why.
           </p>
           <p className="text-base text-gray-700">
             The Advanced template adds agent disagreement detection: when the QC
             Agent disagrees with the Extractor, the record routes to Human
-            Triage rather than proceeding automatically. Two AI agents
-            disagree? A human decides.
+            Triage rather than proceeding automatically. Two AI agents disagree?
+            A human decides.
           </p>
         </section>
 
@@ -171,33 +261,32 @@ export default function ReviewPipelineCanvasPage() {
           <h2 className="font-semibold mb-6">Human Oversight — Not Optional</h2>
           <p className="text-base text-gray-700 mb-4">
             The Human Review node was the most important design decision. The
-            system never makes a final call on a record if confidence falls
+            system never makes a final call on a record when confidence falls
             below threshold. Agents handle volume. Humans handle judgment.
           </p>
           <p className="text-base text-gray-700">
             Reviewers see original text, extracted data, and confidence scores
             side by side. Low-confidence fields are highlighted. The
             approve/reject/escalate model mirrors existing legal review
-            workflows—no new mental model required.
+            workflows — no new mental model required.
           </p>
         </section>
 
         {/* Code-First Prototyping Section */}
         <section>
-          <h2 className="font-semibold mb-6">Code-First Prototyping</h2>
+          <h2 className="font-semibold mb-6">Code-First, Figma Second</h2>
           <p className="text-base text-gray-700 mb-4">
-            Built in React 19 with TypeScript using Cursor IDE and Claude.
-            React Flow for the spatial canvas, Zustand for state management,
-            Tailwind for styling, Radix UI for accessible components. The
-            prototype runs—nodes execute in topological order, progress bars
-            fill in real time, individual nodes can be paused and resumed
-            mid-pipeline.
+            Built in React 19 with TypeScript using Cursor IDE and Claude. React
+            Flow for the spatial canvas, Zustand for state, Tailwind for styling,
+            Radix UI for accessible components. The prototype runs — nodes
+            execute in topological order, progress bars fill in real time,
+            individual nodes can be paused and resumed mid-pipeline.
           </p>
-          <p className="text-base text-gray-700 mb-4">
-            Code-first because the core interactions (drag-and-drop
-            composition, conditional edge routing, live execution feedback)
-            don't survive static mockups. Figma came after, for refinement and
-            documentation—not as the starting point for design thinking.
+          <p className="text-base text-gray-700">
+            Code-first because the core interactions — drag-and-drop
+            composition, conditional edge routing, live execution feedback —
+            don&apos;t survive static mockups. Figma came after, for refinement
+            and documentation. Not as the starting point for design thinking.
           </p>
         </section>
 
