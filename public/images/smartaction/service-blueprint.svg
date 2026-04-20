@@ -146,10 +146,10 @@
   <g class="hand" font-size="11" fill="#c00" font-weight="700">
     <text x="605" y="180" text-anchor="middle">← the question: who writes the rules?</text>
   </g>
-  <path d="M 605 183 Q 600 200 603 210" fill="none" stroke="#c00" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <path d="M 605 188 Q 615 245 607 313" fill="none" stroke="#c00" stroke-width="1.2" stroke-dasharray="2,2"/>
 
   <!-- Redaction bars for "confidentiality" feel -->
   <rect x="740" y="97" width="150" height="10" fill="#222" opacity="0.85"/>
   <rect x="740" y="110" width="110" height="10" fill="#222" opacity="0.85"/>
-  <text x="895" y="106" font-size="8" fill="#888" text-anchor="end" font-style="italic">redacted</text>
+  <text x="895" y="106" font-size="8" fill="#888" text-anchor="end" font-style="italic">redacted</text><text x="815" y="138" class="hand" font-size="10" fill="#777" text-anchor="middle" font-style="italic">names / SSN / claim #</text>
 </svg>
