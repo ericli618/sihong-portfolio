@@ -1,66 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380" font-family="system-ui, -apple-system, sans-serif">
   <defs>
-    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-      <polygon points="0 0,8 3,0 6" fill="#111"/>
+    <pattern id="pl-dots" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#d8d8d2"/>
+    </pattern>
+    <marker id="pl-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#444"/>
     </marker>
-    <marker id="arr-g" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-      <polygon points="0 0,8 3,0 6" fill="#999"/>
+    <marker id="pl-arr-g" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#888"/>
     </marker>
+    <style>.hand { font-family: 'Kalam', 'Bradley Hand', 'Chalkboard SE', cursive; }</style>
   </defs>
-  <rect width="880" height="300" fill="#f5f5f5" rx="6"/>
 
-  <!-- Database Input -->
-  <rect x="20" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
-  <text x="75" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Database Input</text>
-  <line x1="130" y1="85" x2="160" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+  <rect width="960" height="380" fill="#fafaf5"/>
+  <rect width="960" height="380" fill="url(#pl-dots)"/>
 
-  <!-- Extractor -->
-  <rect x="160" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
-  <text x="215" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Extractor</text>
+  <!-- Title block -->
+  <text x="24" y="30" font-size="15" font-weight="700" fill="#111">Canvas — AI pipeline architecture v0.3</text>
+  <text x="24" y="48" font-size="10" fill="#777">FigJam • reviewed with eng • updated Apr 2025</text>
 
-  <!-- Branch dot -->
-  <circle cx="285" cy="85" r="3" fill="#111"/>
+  <!-- Stage 1: Database Input (yellow, tilt left) -->
+  <g transform="rotate(-1.6 105 135)">
+    <rect x="55" y="105" width="100" height="60" fill="#fff3a0" stroke="#d4b81e" stroke-width="1"/>
+    <text x="105" y="130" class="hand" font-size="12" fill="#222" text-anchor="middle">Database</text>
+    <text x="105" y="147" class="hand" font-size="12" fill="#222" text-anchor="middle">Input</text>
+  </g>
 
-  <!-- High-confidence arrow -->
-  <line x1="285" y1="85" x2="370" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
-  <text x="328" y="76" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="middle">≥ 0.80</text>
+  <!-- Arrow 1 -->
+  <path d="M 162 135 Q 190 130 215 135" fill="none" stroke="#444" stroke-width="1.4" marker-end="url(#pl-arr)"/>
 
-  <!-- QC Agent -->
-  <rect x="370" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
-  <text x="425" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">QC Agent</text>
-  <line x1="480" y1="85" x2="520" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- Stage 2: Extractor (yellow, tilt right) -->
+  <g transform="rotate(1.2 275 135)">
+    <rect x="225" y="105" width="100" height="60" fill="#fff3a0" stroke="#d4b81e" stroke-width="1"/>
+    <text x="275" y="128" class="hand" font-size="12" fill="#222" text-anchor="middle">Extractor</text>
+    <text x="275" y="148" class="hand" font-size="9" fill="#8a7a00" text-anchor="middle">LLM + schema</text>
+  </g>
 
-  <!-- Dedupe -->
-  <rect x="520" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
-  <text x="575" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Dedupe</text>
-  <line x1="630" y1="85" x2="670" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- Branch node -->
+  <circle cx="350" cy="135" r="3.5" fill="#444"/>
 
-  <!-- Output -->
-  <rect x="670" y="60" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
-  <text x="725" y="90" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Output</text>
+  <!-- High-confidence arrow to QC Agent -->
+  <path d="M 354 135 Q 380 132 405 135" fill="none" stroke="#444" stroke-width="1.4" marker-end="url(#pl-arr)"/>
+  <text x="380" y="125" class="hand" font-size="10" fill="#3a6a38" text-anchor="middle">≥ 0.80</text>
 
-  <!-- End dot -->
-  <line x1="780" y1="85" x2="820" y2="85" stroke="#111" stroke-width="2" marker-end="url(#arr)"/>
-  <circle cx="830" cy="85" r="5" fill="#111"/>
+  <!-- Stage 3: QC Agent (green, tilt left) -->
+  <g transform="rotate(-1.1 465 135)">
+    <rect x="415" y="105" width="100" height="60" fill="#c9ebc4" stroke="#6ca866" stroke-width="1"/>
+    <text x="465" y="128" class="hand" font-size="12" fill="#222" text-anchor="middle">QC Agent</text>
+    <text x="465" y="148" class="hand" font-size="9" fill="#3a6a38" text-anchor="middle">rule checks</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <path d="M 522 135 Q 550 130 575 135" fill="none" stroke="#444" stroke-width="1.4" marker-end="url(#pl-arr)"/>
+
+  <!-- Stage 4: Dedupe (green, tilt right) -->
+  <g transform="rotate(0.9 625 135)">
+    <rect x="575" y="105" width="100" height="60" fill="#c9ebc4" stroke="#6ca866" stroke-width="1"/>
+    <text x="625" y="128" class="hand" font-size="12" fill="#222" text-anchor="middle">Dedupe</text>
+    <text x="625" y="148" class="hand" font-size="9" fill="#3a6a38" text-anchor="middle">id hash</text>
+  </g>
+
+  <!-- Arrow 4 -->
+  <path d="M 682 135 Q 710 130 735 135" fill="none" stroke="#444" stroke-width="1.4" marker-end="url(#pl-arr)"/>
+
+  <!-- Stage 5: Output (blue, tilt left) -->
+  <g transform="rotate(-0.9 785 135)">
+    <rect x="735" y="105" width="100" height="60" fill="#c8dff5" stroke="#6f9bc4" stroke-width="1"/>
+    <text x="785" y="128" class="hand" font-size="12" fill="#222" text-anchor="middle">Output</text>
+    <text x="785" y="148" class="hand" font-size="9" fill="#3a6a99" text-anchor="middle">signed payload</text>
+  </g>
+
+  <!-- End terminator -->
+  <path d="M 840 135 L 885 135" fill="none" stroke="#444" stroke-width="1.4"/>
+  <circle cx="892" cy="135" r="5" fill="#444"/>
 
   <!-- Low-confidence branch down to Human Review -->
-  <path d="M 285 88 L 285 200 L 370 200" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3" fill="none" marker-end="url(#arr-g)"/>
-  <text x="295" y="155" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="start">&lt; 0.80</text>
+  <path d="M 350 139 Q 352 195 355 225 L 410 225" fill="none" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#pl-arr-g)"/>
+  <text x="362" y="195" class="hand" font-size="11" fill="#c00" font-weight="700" text-anchor="start">&lt; 0.80</text>
 
-  <!-- Human Review pill (label vertically centered, single line) -->
-  <rect x="370" y="175" width="110" height="50" rx="8" fill="#fff" stroke="#111" stroke-width="2"/>
-  <text x="425" y="205" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#111" text-anchor="middle">Human Review</text>
+  <!-- Stage 6: Human Review (pink, tilt right) -->
+  <g transform="rotate(1.4 465 252)">
+    <rect x="410" y="222" width="110" height="62" fill="#ffd6d9" stroke="#d88a8e" stroke-width="1"/>
+    <text x="465" y="248" class="hand" font-size="12" fill="#222" text-anchor="middle">Human Review</text>
+    <text x="465" y="268" class="hand" font-size="9" fill="#9a3a3a" text-anchor="middle">approve · reject · escalate</text>
+  </g>
 
-  <!-- Sub-label BELOW the pill, not inside -->
-  <text x="425" y="245" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="middle">Approve · Reject · Escalate</text>
+  <!-- Approve feedback path back up to Dedupe -->
+  <path d="M 523 238 Q 580 220 605 168" fill="none" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#pl-arr-g)"/>
+  <text x="548" y="205" class="hand" font-size="10" fill="#3a6a38" font-style="italic" text-anchor="start">approve →</text>
 
-  <!-- Approve path back up to Dedupe -->
-  <path d="M 480 200 L 510 200 L 510 130 L 550 110" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3" fill="none" marker-end="url(#arr-g)"/>
-  <text x="520" y="160" font-family="system-ui,sans-serif" font-size="10" fill="#666" text-anchor="start">approve</text>
+  <!-- Red margin annotation -->
+  <text x="240" y="78" class="hand" font-size="11" fill="#c00" font-weight="700">← threshold pinned at 0.80 after week-2 accuracy test</text>
+  <path d="M 355 82 Q 352 105 351 125" fill="none" stroke="#c00" stroke-width="1.2" stroke-dasharray="2,2"/>
 
-  <!-- Legend -->
-  <line x1="30" y1="278" x2="55" y2="278" stroke="#111" stroke-width="2"/>
-  <text x="60" y="282" font-family="system-ui,sans-serif" font-size="10" fill="#666">Primary flow</text>
-  <line x1="160" y1="278" x2="185" y2="278" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3"/>
-  <text x="190" y="282" font-family="system-ui,sans-serif" font-size="10" fill="#666">Conditional / feedback</text>
+  <!-- Stamped "SHIPPED" overlay on Output -->
+  <g transform="rotate(-8 800 95)" opacity="0.55">
+    <rect x="755" y="80" width="90" height="22" fill="none" stroke="#3a6a38" stroke-width="1.5" rx="2"/>
+    <text x="800" y="96" class="hand" font-size="12" font-weight="700" fill="#3a6a38" text-anchor="middle">SHIPPED ✓</text>
+  </g>
+
+  <!-- Legend (bottom-left) -->
+  <g class="hand" font-size="10" fill="#666">
+    <line x1="30" y1="340" x2="58" y2="340" stroke="#444" stroke-width="1.4"/>
+    <text x="64" y="344">primary flow</text>
+    <line x1="170" y1="340" x2="198" y2="340" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3"/>
+    <text x="204" y="344">conditional / feedback loop</text>
+  </g>
 </svg>
